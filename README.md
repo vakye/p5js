@@ -18,4 +18,4 @@ The red circle is a "proton" carrying positive charge. The blue circle is an "el
 
 Below is an image of the simulation running. (`electric_field.png`)
 
-![Electric field simulation](images/electric_field.png "Electric field simulation")
+![Electric field simulation](images/electric_field.gif "Electric field simulation")
