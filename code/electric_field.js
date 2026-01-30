@@ -111,10 +111,6 @@ function DrawVector(FromX, FromY, ToX, ToY)
   }
 }
 
-function setup() {
-  createCanvas(CanvasSizeX, CanvasSizeY, WEBGL);
-}
-
 function CalculateElectricField(ParticleX, ParticleY, X, Y, Charge)
 {
   let DeltaX = ParticleX - X;
@@ -124,15 +120,19 @@ function CalculateElectricField(ParticleX, ParticleY, X, Y, Charge)
 
   Distance = max(Distance, 0.0001);
 
-  let InvDistanceCubed = 1.0 / (Distance * Distance * Distance);
+  let InvDistanceSq = 1.0 / (Distance * Distance);
 
   let DirectionX = DeltaX / Distance;
   let DirectionY = DeltaY / Distance;
 
-  let Ex = Charge * DirectionX * InvDistanceCubed;
-  let Ey = Charge * DirectionY * InvDistanceCubed;
+  let Ex = Charge * DirectionX * InvDistanceSq;
+  let Ey = Charge * DirectionY * InvDistanceSq;
 
   return {X: Ex, Y: Ey};
+}
+
+function setup() {
+  createCanvas(CanvasSizeX, CanvasSizeY, WEBGL);
 }
 
 let Time = 0.0;
